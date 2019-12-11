@@ -85,7 +85,7 @@ function validate_registration($email, $firstname, $lastname, $birthday, $lastna
 function delete_question($id) {
     global $db;
     $query = 'DELETE FROM questions
-              WHERE productID = :id';
+              WHERE ownerid = :id';
     $statement = $db->prepare($query);
     $statement->bindValue(':id', $id);
     $statement->execute();
@@ -93,52 +93,31 @@ function delete_question($id) {
 }
 
 
-
-/*
-function registeruser($email, $firstname, $lastname, $birthday, $lastname, $birthday, $password){
+function get_users_questions($ownerId) {
     global $db;
 
-    $query = 'INSERT INTO accountsIS218 (email, fname, lname, birthday, password)
-          VALUES (:email, :fname, :lname, :birthday, :password)';
+    $query = 'SELECT * FROM questions WHERE ownerId = :ownerId';
 
-//Create PDO statement
     $statement = $db->prepare($query);
 
-//Bind form values to SQL
-    $statement->bindValue(':email', $email);
-    $statement->bindValue(':fname', $firstname);
-    $statement->bindValue(':lname', $lastname);
-    $statement->bindValue(':birthday', $birthday);
-    $statement->bindValue(':password', $password);
-
-//Execute the SQL Query
+    $statement->bindValue(':ownerId', $ownerId);
     $statement->execute();
 
-    $id = $db->getLastInsertedId;
-
-//Close the datab
+    $questions = $statement->fetchAll();
     $statement->closeCursor();
+
+    return $questions;
 }
-*/
 
-
-//the following code not needed yet
-
-/*
-function get_email($userid)             //should be querying from accounts table b/c everything in questions table is just a copy
-{                                       //b/c the newly inserted question was inserted into a row with a NULL email
+function add_question($id){
     global $db;
-    $query = 'SELECT email FROM accountsIS218 WHERE id =: id';
-
+    $query = 'INSERT INTO questions
+          (owneremail,ownerid, title, body, skills)
+          VALUES
+          (:owneremail,:ownerid,:title, :body, :skills)';
     $statement = $db->prepare($query);
-    $statement->bindValue(':id',$userid);
+    $statement->bindValue(':id', $id);
     $statement->execute();
-    $emailvalue = $statement->fetch();
-    $statement->closeCursor();
-    $emailresult = $emailvalue['email'];
-    return $emailresult;
 }
-
-*/
 
 ?>

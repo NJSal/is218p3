@@ -86,9 +86,15 @@ switch($action){
 
     case 'display_question_form': {
         $userId = filter_input(INPUT_GET, 'userId');
-        include('views/question_form.php');
+        $emailVal =
+        include('views/question_form.php');             //includes the form
         break;
     }
+
+    case 'delete_question': {
+
+    }
+
 
     default: {
         $error = 'Unknown Action';

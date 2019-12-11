@@ -1,7 +1,7 @@
 <?php
 require('../ModelPDO/pdo.php');
 require('../ModelPDO/pdomethods.php');
-require('../ModelPDO/pdomethod2.php');
+require('../ModelPDO/helperfunctions.php');
 //$questions = get_questions($userId);
 $firstname = filter_input(INPUT_GET, 'fname');
 $lastname = filter_input(INPUT_GET, 'lname');
