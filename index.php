@@ -53,10 +53,14 @@ switch($action){
 
         if ($firstname == NULL || $lastname == NULL || $birthday == NULL || $email == NULL || $password == NULL) {
             $error = "Missing a field";
-            include('../errors/error.php');
+            echo $error;
+            //('../errors/error.php');
         }
         else{
-            $register = validate_registration($firstname, $lastname, $birthday, $password, $email);
+            registeruser($email, $firstname, $lastname, $birthday, $lastname, $birthday, $password);
+            header("Location: .?action=log_in");
+
+            /*
             echo "User ID: $register";
             if($register == false){
                 header("Location: .?action=display_login");
@@ -64,10 +68,8 @@ switch($action){
             else{
                 $userId = validate_login($email,$password);
                 header("Location: .?display_questions&userId=$userId");
+            */
             }
-        }
-
-
         break;
     }
 
