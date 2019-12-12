@@ -67,7 +67,7 @@ function validate_registration($email, $firstname, $lastname, $birthday, $lastna
     $statement->bindValue(':fname', $firstname);
     $statement->bindValue(':lname', $lastname);
     $statement->bindValue(':password', $password);
-    $statement->bindValue('::birthday', $birthday);
+    $statement->bindValue(':birthday', $birthday);
     $statement->execute();
     $user = $statement->fetch();
     $isValidLogin = count($user) > 0;
@@ -109,15 +109,20 @@ function get_users_questions($ownerId) {
     return $questions;
 }
 
-function add_question($id){
+function add_question($userId, $questionname, $questionbody, $questionskills){
     global $db;
     $query = 'INSERT INTO questions
-          (owneremail,ownerid, title, body, skills)
+          (ownerid, title, body, skills)
           VALUES
-          (:owneremail,:ownerid,:title, :body, :skills)';
+          (:ownerid,:title, :body, :skills)';
     $statement = $db->prepare($query);
-    $statement->bindValue(':id', $id);
+    $statement->bindValue(':ownerid', $userId);
+    $statement->bindValue(':title', $questionname);
+    $statement->bindValue(':body', $questionbody);
+    $statement->bindValue(':skills', $questionskills);
     $statement->execute();
+
+    $statement -> closeCursor();
 }
 
 ?>

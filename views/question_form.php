@@ -5,16 +5,16 @@
                 <br>
                 <div class="form-group">
                     <label for="name">Question Title</label>
-                    <input id="name" type="text" name="name" class="form-control">
+                    <input id="questioname" type="text" name="questioname" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="about">About</label>
-                    <input id="about" type="text" name="about" class="form-control">
+                    <input id="questionbody" type="text" name="questionbody" class="form-control">
                 </div>
 
                 <div class="form-group">
                     <label for="skills">Skills: </label>
-                    <input id="skills" type="text" name="skills" class="form-control">
+                    <input id="questionskills" type="text" name="questionskills" class="form-control">
                 </div>
 
                 <button class="btn btn-primary btn-block">

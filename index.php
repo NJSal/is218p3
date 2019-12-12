@@ -88,11 +88,40 @@ switch($action){
     }
 
     case 'display_question_form': {
+        session_start();
+        $_SESSION['userId'] =$userId;
         $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
+
         $emailVal = get_email($userId);                 //////////
         //name and last name?
         include('views/question_form.php');             //includes the form
         break;
+    }
+
+    case 'createquestion':{
+        session_start();
+        $userId = $_SESSION['userId'];
+        $questionname = filter_input(INPUT_POST, 'questioname');
+        $questionbody = filter_input(INPUT_POST, 'questionbody');
+        $questionskills = filter_input(INPUT_POST, 'questionskills');
+
+        $skills = explode(',', $questionskills);
+
+        if ($questionbody == NULL || $questionname == NULL || $questionskills == NULL) {
+            $error = "question body is less than ..500";
+            echo $error;
+        }
+        else{
+            add_question($userId, $questionname, $questionbody, $questionskills);
+            header("Location: .?action=display_questions&userId=$userId");
+        }
+        break;
+
+
+
+
+
+
     }
 
     case 'delete_question': {
