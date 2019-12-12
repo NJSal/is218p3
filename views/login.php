@@ -1,8 +1,10 @@
 <?php include ('abstract-views/header.php'); ?>
             <form action ="index.php" method = "post" class = "form-container">
+                <input type = "hidden" name = "action" value = "validate_login">
                 <h2>Account Login</h2>
                 <br>
                 <br>
+
                 <div class="form-group">
                     <label for="email">Email address</label>
                     <input id="email" type="text" name="email" class="form-control">

@@ -20,6 +20,8 @@
                     <input type="hidden" name="action" value="delete_question">     //value = "delete_question" from switch case
                     <input type="hidden" name="id"
                            value = "<?php echo $question['id'];?>">   //id: primary key cannot be duplicated. if ownerid was used then all of the questions would be deleted
+                    <input type="hidden" name="userId"
+                           value = "<?php echo $userId;?>">
                     <input type="submit" value="Delete">
                 </form></td>
         </tr>

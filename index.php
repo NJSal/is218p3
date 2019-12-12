@@ -28,7 +28,7 @@ switch($action){
         } else {
             $userId = validate_login($email, $password);
             echo "User ID IS: $userId";
-            if ($userId !== false) {
+            if ($userId == false) {
                 header("location: .?action=display_registration");      //action tells controller what to do
             } else {
                 header("Location: .?action=display_questions&userId=$userId");
@@ -93,15 +93,16 @@ switch($action){
     }
 
     case 'delete_question': {
+        $questionId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
         $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
 
-        if($userId == NULL || $userId == FALSE){
+        if($questionId == NULL || $questionId == FALSE){
             $error = "Missing or incorrect id.";
             include('../errors/error.php');
         }
         else {
-            delete_question($userId);
-            header("Location: .?userId=$userId");
+            delete_question($questionId);
+            header("Location: .?action=display_questions&userId=$userId");
         }
 
     }
