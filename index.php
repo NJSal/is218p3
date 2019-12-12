@@ -24,14 +24,15 @@ switch($action){
         $password = filter_input(INPUT_POST, 'password');
         if ($email == NULL || $password == NULL) {
             $error = "Email and Password are required";
-            include('../errors/error.php');
+            include('errors/error.php');
         } else {
             $userId = validate_login($email, $password);
-            echo "User ID IS: $userId";
-            if ($userId == false) {
-                header("location: .?action=display_registration");      //action tells controller what to do
-            } else {
+            if ($userId !== NULL) {
+                                                                  //action tells controller what to do
                 header("Location: .?action=display_questions&userId=$userId");
+            }
+            else {
+                header("location: .?action=display_registration");
             }
         }
         break;
@@ -98,7 +99,7 @@ switch($action){
 
         if($questionId == NULL || $questionId == FALSE){
             $error = "Missing or incorrect id.";
-            include('../errors/error.php');
+            include('errors/error.php');
         }
         else {
             delete_question($questionId);

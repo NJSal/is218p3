@@ -19,7 +19,7 @@ function get_questions($userid)
 function validate_login($email, $password)
 {
     global $db;
-    $query = 'SELECT * FROM accounts WHERE email = :email AND password = :password';
+    $query = 'SELECT * FROM accountsIS218 WHERE email = :email AND password = :password';
     $statement = $db->prepare($query);
     $statement->bindValue(':email', $email);
     $statement->bindValue(':password', $password);

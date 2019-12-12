@@ -7,7 +7,7 @@
 
                 <div class="form-group">
                     <label for="email">Email address</label>
-                    <input id="email" type="text" name="email" class="form-control">
+                    <input id="email" type="email" name="email" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>
@@ -15,11 +15,11 @@
                 </div>
 
                 <button class="btn btn-default btn-block">
-                    <a href = "../Registrationform/registrationform.html">Register Account</a>
+                    Register Account
                 </button>
 
                 <button class="btn btn-primary btn-block">
-                    <input type = "submit" value = "Submit Responses" class = "btn btn-primary bt-block">
+                    <input type = "submit" class = "btn btn-primary bt-block">
                 </button>
             </form>
 

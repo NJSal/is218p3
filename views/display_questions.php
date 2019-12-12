@@ -11,8 +11,7 @@
     </tr>
     <?php foreach ($questions as $question) : ?>
         <tr>
-            <td><?php echo $question['owneremail']; ?></td>
-            <td><?php echo $question['ownerid']; ?></td>
+            <td><?php echo $question['id']; ?></td>
             <td><?php echo $question['title']; ?></td>
             <td><?php echo $question['body']; ?></td>
             <td><?php echo $question['skills']; ?></td>
