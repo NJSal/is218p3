@@ -94,9 +94,15 @@ switch($action){
     }
 
     case 'delete_question': {
-        $questionId = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
-        $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
+        $questionId = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);           //
+        $userId = filter_input(INPUT_POST, 'userId', FILTER_VALIDATE_INT);
 
+
+        delete_question($questionId );
+        header("Location: .?action=display_questions&userId=$userId");
+        break;
+
+        /*
         if($questionId == NULL || $questionId == FALSE){
             $error = "Missing or incorrect id.";
             include('errors/error.php');
@@ -105,7 +111,7 @@ switch($action){
             delete_question($questionId);
             header("Location: .?action=display_questions&userId=$userId");
         }
-
+        */
     }
 
 
