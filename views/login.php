@@ -15,7 +15,7 @@
                 </div>
 
                 <button class="btn btn-default btn-block">
-                    Register Account
+                    <a href = ".?action = display_registration">Register</a>
                 </button>
 
                 <button class="btn btn-primary btn-block">
