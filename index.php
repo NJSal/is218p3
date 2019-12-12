@@ -88,11 +88,13 @@ switch($action){
     }
 
     case 'display_question_form': {
+        //session_start();
+        //$_SESSION['userId'] =$userId;
+        $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
         session_start();
         $_SESSION['userId'] =$userId;
-        $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
 
-        $emailVal = get_email($userId);                 //////////
+        //$emailVal = get_email($userId);                 //////////
         //name and last name?
         include('views/question_form.php');             //includes the form
         break;
