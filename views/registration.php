@@ -1,9 +1,10 @@
 <?php include('abstract-views/header.php'); ?>
                 <form action ="index.php" method = "post" class = "form-container">
+                    <input type="hidden" name="action" value='register'>
                     <h2>Registration</h2>
                     <br>
                     <br>
-                    <input type="hidden" name="action" value="register">
+
                     <div class="form-group">
                         <label for="firstname">First Name</label>
                         <input id="firstname" type="text" name="fname" class="form-control">
