@@ -85,13 +85,24 @@ switch($action){
     }
 
     case 'display_question_form': {
-        $userId = filter_input(INPUT_GET, 'userId');
-        $emailVal =
+        $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
+        $emailVal = get_email($userId);                 //////////
+        //name and last name?
         include('views/question_form.php');             //includes the form
         break;
     }
 
     case 'delete_question': {
+        $userId = filter_input(INPUT_GET, 'userId', FILTER_VALIDATE_INT);
+
+        if($userId == NULL || $userId == FALSE){
+            $error = "Missing or incorrect id.";
+            include('../errors/error.php');
+        }
+        else {
+            delete_question($userId);
+            header("Location: .?userId=$userId");
+        }
 
     }
 
