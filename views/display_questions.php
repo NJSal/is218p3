@@ -3,7 +3,9 @@
 
 <table class="table">
     <tr>
+        <!--
         <th scope = "col">Email</th>
+        -->
         <th scope = "col">Id</th>
         <th scope = "col">Question Title</th>
         <th scope = "col">Question Body</th>
