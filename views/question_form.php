@@ -1,5 +1,6 @@
 <?php include('abstract-views/header.php'); ?>
             <form action ="index.php" method = "post" class = "form-container">
+                <input type="hidden" name="action" value="createquestion">
                 <h2>Question Form</h2>
                 <br>
                 <br>
