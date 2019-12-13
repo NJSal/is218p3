@@ -23,8 +23,6 @@
                 </button>
 
                 <input type="hidden" name="userId" value="<?php echo $userId; ?>">
-               <!--
-                <input type="hidden" name="email"  value="<?php echo $emailval; ?>">
-               -->
+
             </form>
 <?php include('abstract-views/footer.php'); ?>
