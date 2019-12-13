@@ -109,7 +109,7 @@ switch($action){
 
         $skills = explode(',', $questionskills);
 
-        if ($questionbody == NULL || $questionname == NULL || $questionskills == NULL) {
+        if ($questionbody == NULL || $questionname == NULL || $questionskills == NULL || count($skills) < 2) {
             $error = "question body is less than ..500";
             echo $error;
         }
