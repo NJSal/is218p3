@@ -27,4 +27,4 @@
                 <input type="hidden" name="email"  value="<?php echo $emailval; ?>">
                -->
             </form>
-<?php include('views/abstract-views/footer.php'); ?>
+<?php include('abstract-views/footer.php'); ?>
